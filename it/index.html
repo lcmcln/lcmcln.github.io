@@ -40,8 +40,19 @@
       </section>
 
       <section>
-        <h2>Esperienza</h2>
+        <h2>Progetti</h2>
         <div class="projects" id="projects"></div>
+        <a href="./progetti/" class="view-all">Tutti i progetti →</a>
+      </section>
+
+      <section>
+        <h2>Esperienza</h2>
+        <div class="projects" id="experience"></div>
+      </section>
+
+      <section>
+        <h2>Istruzione</h2>
+        <div class="projects" id="education"></div>
       </section>
 
       <section class="contact">
@@ -60,7 +71,6 @@
 
       <footer>
         <span id="copyright"></span>
-        <span>Realizzato con HTML &amp; JS</span>
       </footer>
     </main>
 
@@ -93,6 +103,30 @@
         },
       ];
 
+      const projects = [
+        {
+          title: "Marketplace · web + mobile",
+          tagline:
+            "Marketplace two-sided rilasciato come web app Next.js e app mobile Expo.",
+          tags: ["Next.js", "Expo"],
+          year: "2025",
+        },
+        {
+          title: "Chat RAG di supporto",
+          tagline:
+            "Assistente conversazionale RAG per il supporto utenti, con retrieval sulla knowledge base interna.",
+          tags: ["Python", "OpenAI"],
+          year: "2025",
+        },
+        {
+          title: "Gestionale turni autisti",
+          tagline:
+            "Web app per pianificare e gestire i turni degli autisti di un operatore logistico.",
+          tags: ["Next.js"],
+          year: "2024",
+        },
+      ];
+
       const experience = [
         {
           title: "Indipendente — Builder",
@@ -120,6 +154,19 @@
         },
       ];
 
+      const education = [
+        {
+          title: "Università degli Studi di Udine",
+          year: "2018 — 2020",
+          description: "Informatica, triennale — dropout.",
+        },
+        {
+          title: "ITT G. Chilesotti",
+          year: "2013 — 2018",
+          description: "Diploma di istituto tecnico tecnologico.",
+        },
+      ];
+
       const escapeHtml = (s) =>
         s.replace(
           /[&<>"']/g,
@@ -144,7 +191,7 @@
         )
         .join("");
 
-      document.getElementById("projects").innerHTML = experience
+      document.getElementById("projects").innerHTML = projects
         .map(
           (p) => `
             <article class="project">
@@ -152,10 +199,32 @@
                 <strong>${escapeHtml(p.title)}</strong>
                 <span>${escapeHtml(p.year)}</span>
               </div>
-              <p>${escapeHtml(p.description)}</p>
+              <p>${escapeHtml(p.tagline)}</p>
+              <div class="tags">${p.tags
+                .map((t) => `<span class="tag">${escapeHtml(t)}</span>`)
+                .join("")}</div>
             </article>`
         )
         .join("");
+
+      const renderTimeline = (items) =>
+        items
+          .map(
+            (p) => `
+            <article class="project">
+              <div class="project-title">
+                <strong>${escapeHtml(p.title)}</strong>
+                <span>${escapeHtml(p.year)}</span>
+              </div>
+              <p>${escapeHtml(p.description)}</p>
+            </article>`
+          )
+          .join("");
+
+      document.getElementById("experience").innerHTML =
+        renderTimeline(experience);
+      document.getElementById("education").innerHTML =
+        renderTimeline(education);
 
       document.getElementById("copyright").textContent =
         "© " + new Date().getFullYear() + " Luca Maculan";
