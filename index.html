@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Software Engineer · Portfolio</title>
+    <link rel="alternate" hreflang="en" href="./en/" />
+    <link rel="alternate" hreflang="it" href="./it/" />
+    <script>
+      (function () {
+        var supported = ["en", "it"];
+        var fallback = "en";
+        var lang = (navigator.language || navigator.userLanguage || fallback)
+          .slice(0, 2)
+          .toLowerCase();
+        var target = supported.indexOf(lang) !== -1 ? lang : fallback;
+        location.replace("./" + target + "/");
+      })();
+    </script>
+    <meta http-equiv="refresh" content="0; url=./en/" />
+  </head>
+  <body>
+    <p style="font-family: sans-serif; padding: 24px;">
+      <a href="./en/">English</a> · <a href="./it/">Italiano</a>
+    </p>
+  </body>
+</html>

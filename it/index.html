@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Luca Maculan · Builder</title>
+    <meta
+      name="description"
+      content="Luca Maculan — builder indipendente, dall'Italia. SaaS, eCommerce e integrazione di sistemi rilasciati end-to-end."
+    />
+    <link rel="alternate" hreflang="en" href="../en/" />
+    <link rel="alternate" hreflang="it" href="../it/" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <nav class="lang-switch" aria-label="Lingua">
+      <a href="../en/">EN</a>
+      <a href="../it/" class="active" aria-current="page">IT</a>
+    </nav>
+
+    <main>
+      <header class="hero">
+        <p class="eyebrow">luca maculan</p>
+        <h1>
+          Builder.
+          <span
+            >Rilascio SaaS, eCommerce e integrazione di sistemi —
+            end-to-end.</span
+          >
+        </h1>
+        <p class="lede">
+          Indipendente, dall'Italia. Porto le idee dallo schizzo alla
+          produzione: prodotto, codice e l'infrastruttura che li sostiene.
+        </p>
+      </header>
+
+      <section>
+        <h2>Stack</h2>
+        <div class="stack" id="stack"></div>
+      </section>
+
+      <section>
+        <h2>Esperienza</h2>
+        <div class="projects" id="projects"></div>
+      </section>
+
+      <section class="contact">
+        <h2>Contatti</h2>
+        <ul>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/luca-maculan"
+              target="_blank"
+              rel="noreferrer"
+              >linkedin.com/in/luca-maculan</a
+            >
+          </li>
+        </ul>
+      </section>
+
+      <footer>
+        <span id="copyright"></span>
+        <span>Realizzato con HTML &amp; JS</span>
+      </footer>
+    </main>
+
+    <script>
+      const stack = [
+        {
+          domain: "Web",
+          tech: "Next.js",
+          note: "App Router, React Server Components, TypeScript end-to-end.",
+        },
+        {
+          domain: "Database",
+          tech: "PostgreSQL",
+          note: "Progettazione schema, indici, migrazioni, ottimizzazione query.",
+        },
+        {
+          domain: "Mobile",
+          tech: "Expo · React Native",
+          note: "Cross-platform iOS / Android con moduli nativi quando serve.",
+        },
+        {
+          domain: "Dati",
+          tech: "Python",
+          note: "Pipeline, analisi, ML — pandas, NumPy, FastAPI, scikit-learn.",
+        },
+        {
+          domain: "Embedded",
+          tech: "C++ · STM32 · OpenSTLinux",
+          note: "Microcontrollori STM32 e application processor STM32MP. C++ real-time, firmware bare-metal e OpenSTLinux sul lato Linux.",
+        },
+      ];
+
+      const experience = [
+        {
+          title: "Indipendente — Builder",
+          year: "2022 — oggi",
+          description:
+            "Rilascio prodotti SaaS, eCommerce e system integration end-to-end. Backend in TypeScript / Python, frontend con Next.js, app mobile con Expo, Postgres.",
+        },
+        {
+          title: "EY — Technical Consultant",
+          year: "2022",
+          description:
+            "Sviluppo full-stack per un cliente del food industry. Backend C# .NET Core, frontend Angular + Kendo UI, Azure SQL Server, Azure Pipelines.",
+        },
+        {
+          title: "Develon — Software Developer",
+          year: "2021",
+          description:
+            "Infrastruttura cloud e CI/CD su GCP con Kubernetes e Terraform. Manutenzione di microservizi Java e Node.js, MongoDB, Redis e Keycloak.",
+        },
+        {
+          title: "HBenchmark — Backend Developer",
+          year: "2020 — 2021",
+          description:
+            "API e logica di business per una piattaforma di data aggregation. Integrazione di sistemi terzi e armonizzazione dei dati nel CRM tramite REST endpoint. Ruby + MongoDB.",
+        },
+      ];
+
+      const escapeHtml = (s) =>
+        s.replace(
+          /[&<>"']/g,
+          (c) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+            })[c]
+        );
+
+      document.getElementById("stack").innerHTML = stack
+        .map(
+          (s) => `
+            <div class="stack-item">
+              <span class="stack-domain">${escapeHtml(s.domain)}</span>
+              <span class="stack-tech">${escapeHtml(s.tech)}</span>
+              <span class="stack-note">${escapeHtml(s.note)}</span>
+            </div>`
+        )
+        .join("");
+
+      document.getElementById("projects").innerHTML = experience
+        .map(
+          (p) => `
+            <article class="project">
+              <div class="project-title">
+                <strong>${escapeHtml(p.title)}</strong>
+                <span>${escapeHtml(p.year)}</span>
+              </div>
+              <p>${escapeHtml(p.description)}</p>
+            </article>`
+        )
+        .join("");
+
+      document.getElementById("copyright").textContent =
+        "© " + new Date().getFullYear() + " Luca Maculan";
+    </script>
+  </body>
+</html>
