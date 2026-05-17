@@ -44,10 +44,10 @@ main {
   padding: 96px 32px 128px;
 }
 
-.lang-switch {
+.lang-switch,
+.menu {
   position: absolute;
   top: 24px;
-  right: 32px;
   font-family: var(--mono);
   font-size: 12px;
   letter-spacing: 0.06em;
@@ -55,19 +55,30 @@ main {
   gap: 8px;
 }
 
-.lang-switch a {
+.lang-switch {
+  right: 32px;
+}
+
+.menu {
+  left: 32px;
+}
+
+.lang-switch a,
+.menu a {
   border-bottom: none;
   padding: 4px 8px;
   color: var(--fg-dim);
   border-radius: 4px;
 }
 
-.lang-switch a.active {
+.lang-switch a.active,
+.menu a.active {
   color: var(--bg);
   background: var(--accent);
 }
 
-.lang-switch a:not(.active):hover {
+.lang-switch a:not(.active):hover,
+.menu a:not(.active):hover {
   color: var(--accent);
   background: var(--bg-elev);
 }
@@ -192,6 +203,10 @@ h2 {
   font-family: var(--mono);
   font-size: 12px;
   color: var(--fg-dim);
+}
+
+#projects .project-title span {
+  display: none;
 }
 
 .project p {

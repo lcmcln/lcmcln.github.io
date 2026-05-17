@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="../../styles.css" />
   </head>
   <body>
+    <nav class="menu" aria-label="Menu">
+      <a href="./" class="active" aria-current="page">Projects</a>
+    </nav>
     <nav class="lang-switch" aria-label="Language">
       <a href="../../en/projects/" class="active" aria-current="page">EN</a>
       <a href="../../it/progetti/">IT</a>
@@ -27,12 +30,70 @@
         </p>
       </header>
 
+      <section>
+        <h2>Featured</h2>
+        <div class="projects" id="projects"></div>
+      </section>
+
       <footer>
         <span id="copyright"></span>
       </footer>
     </main>
 
     <script>
+      const projects = [
+        {
+          title: "Marketplace · web + mobile",
+          tagline:
+            "Two-sided marketplace shipped as a Next.js web app and an Expo mobile app.",
+          tags: ["Next.js", "Expo"],
+          year: "2025",
+        },
+        {
+          title: "RAG support chat",
+          tagline:
+            "Retrieval-augmented chat assistant powering user support over an internal knowledge base.",
+          tags: ["Python", "OpenAI"],
+          year: "2025",
+        },
+        {
+          title: "Driver shift management",
+          tagline:
+            "Web app to plan and manage driver shifts for a logistics operation.",
+          tags: ["Next.js"],
+          year: "2024",
+        },
+      ];
+
+      const escapeHtml = (s) =>
+        s.replace(
+          /[&<>"']/g,
+          (c) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+            })[c]
+        );
+
+      document.getElementById("projects").innerHTML = projects
+        .map(
+          (p) => `
+            <article class="project">
+              <div class="project-title">
+                <strong>${escapeHtml(p.title)}</strong>
+                <span>${escapeHtml(p.year)}</span>
+              </div>
+              <p>${escapeHtml(p.tagline)}</p>
+              <div class="tags">${p.tags
+                .map((t) => `<span class="tag">${escapeHtml(t)}</span>`)
+                .join("")}</div>
+            </article>`
+        )
+        .join("");
+
       document.getElementById("copyright").textContent =
         "© " + new Date().getFullYear() + " Luca Maculan";
     </script>
