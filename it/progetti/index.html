@@ -3,99 +3,162 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b0c0a" />
     <title>Progetti · Luca Maculan</title>
-    <meta name="description" content="Progetti di Luca Maculan — prossimamente." />
+    <meta
+      name="description"
+      content="Progetti web, mobile e AI applicata selezionati da Luca Maculan."
+    />
     <link rel="alternate" hreflang="en" href="../../en/projects/" />
     <link rel="alternate" hreflang="it" href="../../it/progetti/" />
     <link rel="stylesheet" href="../../styles.css" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
   </head>
   <body>
-    <nav class="menu" aria-label="Menu">
-      <a href="./" class="active" aria-current="page">Progetti</a>
-    </nav>
-    <nav class="lang-switch" aria-label="Lingua">
-      <a href="../../en/projects/">EN</a>
-      <a href="../../it/progetti/" class="active" aria-current="page">IT</a>
-    </nav>
+    <a class="skip-link" href="#main-content">Vai al contenuto</a>
 
-    <main>
-      <header class="hero">
-        <p class="eyebrow"><a href="../">← luca maculan</a></p>
-        <h1>
-          Progetti.
-          <span>Prossimamente.</span>
-        </h1>
-        <p class="lede">
-          Uno sguardo più dettagliato a ciò che sto costruendo. In arrivo.
-        </p>
+    <div class="site-shell">
+      <header class="site-nav">
+        <a class="brand" href="../" aria-label="Luca Maculan, home">
+          <span class="brand-mark" aria-hidden="true">LM</span>
+          <span class="brand-name">Luca Maculan</span>
+        </a>
+
+        <nav class="primary-nav" aria-label="Navigazione principale">
+          <a href="../">Home</a>
+          <a href="./" aria-current="page">Progetti</a>
+          <a href="../#contact">Contatti</a>
+        </nav>
+
+        <nav class="language-nav" aria-label="Lingua">
+          <a href="../../en/projects/" lang="en">EN</a>
+          <a href="../../it/progetti/" aria-current="page">IT</a>
+        </nav>
       </header>
 
-      <section>
-        <h2>In evidenza</h2>
-        <div class="projects" id="projects"></div>
-      </section>
+      <main id="main-content">
+        <header class="page-hero">
+          <div class="page-hero-copy" data-reveal>
+            <p class="page-kicker">Archivio progetti</p>
+            <h1>
+              Progetti.
+              <span>Dettagli in arrivo.</span>
+            </h1>
+          </div>
 
-      <footer>
+          <div class="page-hero-aside" data-reveal style="--delay: 120ms">
+            <p>
+              Uno sguardo più dettagliato a ciò che sto costruendo è in arrivo.
+              Per ora, ecco una sintesi dei prodotti recenti.
+            </p>
+            <a class="back-link" href="../"
+              ><span aria-hidden="true">←</span> Torna alla home</a
+            >
+          </div>
+        </header>
+
+        <section class="content-section">
+          <div class="section-grid">
+            <div class="section-heading" data-reveal>
+              <span class="section-index">01 / In evidenza</span>
+              <h2>Sistemi recenti in produzione.</h2>
+              <p class="section-note">
+                Prodotti web, mobile e AI rilasciati end-to-end.
+              </p>
+            </div>
+
+            <div class="section-body project-list">
+              <article class="project-record" data-reveal>
+                <span class="record-number">P/01</span>
+                <div class="project-copy">
+                  <div class="project-title-row">
+                    <h3>Marketplace · web + mobile</h3>
+                  </div>
+                  <p class="project-description">
+                    Marketplace two-sided rilasciato come web app Next.js e app
+                    mobile Expo.
+                  </p>
+                  <div class="tags" aria-label="Tecnologie">
+                    <span class="tag">Next.js</span>
+                    <span class="tag">Expo</span>
+                  </div>
+                </div>
+                <span class="project-year">2025</span>
+              </article>
+
+              <article class="project-record" data-reveal>
+                <span class="record-number">P/02</span>
+                <div class="project-copy">
+                  <div class="project-title-row">
+                    <h3>Chat RAG di supporto</h3>
+                  </div>
+                  <p class="project-description">
+                    Assistente conversazionale RAG per il supporto utenti, con
+                    retrieval sulla knowledge base interna.
+                  </p>
+                  <div class="tags" aria-label="Tecnologie">
+                    <span class="tag">Python</span>
+                    <span class="tag">OpenAI</span>
+                  </div>
+                </div>
+                <span class="project-year">2025</span>
+              </article>
+
+              <article class="project-record" data-reveal>
+                <span class="record-number">P/03</span>
+                <div class="project-copy">
+                  <div class="project-title-row">
+                    <h3>Gestionale turni autisti</h3>
+                  </div>
+                  <p class="project-description">
+                    Web app per pianificare e gestire i turni degli autisti di
+                    un operatore logistico.
+                  </p>
+                  <div class="tags" aria-label="Tecnologie">
+                    <span class="tag">Next.js</span>
+                  </div>
+                </div>
+                <span class="project-year">2024</span>
+              </article>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
         <span id="copyright"></span>
+        <span class="footer-note">Builder indipendente · Italia</span>
       </footer>
-    </main>
+    </div>
 
     <script>
-      const projects = [
-        {
-          title: "Marketplace · web + mobile",
-          tagline:
-            "Marketplace two-sided rilasciato come web app Next.js e app mobile Expo.",
-          tags: ["Next.js", "Expo"],
-          year: "2025",
-        },
-        {
-          title: "Chat RAG di supporto",
-          tagline:
-            "Assistente conversazionale RAG per il supporto utenti, con retrieval sulla knowledge base interna.",
-          tags: ["Python", "OpenAI"],
-          year: "2025",
-        },
-        {
-          title: "Gestionale turni autisti",
-          tagline:
-            "Web app per pianificare e gestire i turni degli autisti di un operatore logistico.",
-          tags: ["Next.js"],
-          year: "2024",
-        },
-      ];
-
-      const escapeHtml = (s) =>
-        s.replace(
-          /[&<>"']/g,
-          (c) =>
-            ({
-              "&": "&amp;",
-              "<": "&lt;",
-              ">": "&gt;",
-              '"': "&quot;",
-              "'": "&#39;",
-            })[c]
-        );
-
-      document.getElementById("projects").innerHTML = projects
-        .map(
-          (p) => `
-            <article class="project">
-              <div class="project-title">
-                <strong>${escapeHtml(p.title)}</strong>
-                <span>${escapeHtml(p.year)}</span>
-              </div>
-              <p>${escapeHtml(p.tagline)}</p>
-              <div class="tags">${p.tags
-                .map((t) => `<span class="tag">${escapeHtml(t)}</span>`)
-                .join("")}</div>
-            </article>`
-        )
-        .join("");
-
       document.getElementById("copyright").textContent =
         "© " + new Date().getFullYear() + " Luca Maculan";
+
+      const revealItems = document.querySelectorAll("[data-reveal]");
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+      if (!("IntersectionObserver" in window) || reduceMotion) {
+        revealItems.forEach((item) => item.classList.add("is-visible"));
+      } else {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+        );
+
+        revealItems.forEach((item) => observer.observe(item));
+      }
     </script>
   </body>
 </html>
